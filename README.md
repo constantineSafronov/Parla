@@ -1,4 +1,7 @@
 # Parla
+
+![SwiftUI](https://img.shields.io/badge/SwiftUI-Orange?style=flat-square&logo=swift) ![SwiftTesting](https://img.shields.io/badge/SwiftUI-Orange?style=flat-square&logo=swift) ![iOS](https://img.shields.io/badge/iOS-Blue?style=flat-square&logo=apple) ![Combine](https://img.shields.io/badge/Combine-Red?style=flat-square) ![SwiftData](https://img.shields.io/badge/SwiftData-LightBlue?style=flat-square)
+
 Parla 🇮🇹 is an iOS app built with SwiftUI for learning Italian. Create custom word sets, add new words, and swipe through flashcards to study and memorize vocabulary.
 
 ---
