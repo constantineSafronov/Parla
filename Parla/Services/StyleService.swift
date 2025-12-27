@@ -8,7 +8,8 @@
 import SwiftUI
 import Observation
 
-final class StyleService: Observable {
+@Observable
+final class StyleService {
   var commonBackgroundGradient: LinearGradient {
     LinearGradient(
       colors: [Color.blue.opacity(0.4), Color.purple.opacity(0.4)],

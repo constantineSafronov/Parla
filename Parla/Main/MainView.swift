@@ -26,7 +26,7 @@ struct MainView: View {
           .navigationDestination(for: Destination.self) { destination in
             switch destination {
             case .wordList(let set):
-              WordList(set: set)
+              WordList(model: WordListViewModel(wordSet: set, modelContext: modelContext))
                 .toolbar(.hidden, for: .tabBar)
               
             case .createWordSet:

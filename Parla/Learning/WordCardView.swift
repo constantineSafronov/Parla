@@ -12,10 +12,15 @@ struct WordCardView: View {
   let word: Word
   let hiddenSide: HiddenSide
   @State var showsAllContent: Bool = false
-  
+  let voiceOverCallback: (() -> Void)
   var body: some View {
     VStack(spacing: 16) {
       if showsAllContent {
+        Button {
+          voiceOverCallback()
+        } label: {
+          Image(systemName: "speaker.wave.2.fill")
+        }
         Text(word.value)
           .font(.largeTitle.bold())
         Text(word.translation)
@@ -30,6 +35,11 @@ struct WordCardView: View {
             .font(.title2)
             .foregroundStyle(.secondary)
         } else {
+          Button {
+            voiceOverCallback()
+          } label: {
+            Image(systemName: "speaker.wave.2.fill")
+          }
           Text(word.value)
             .font(.largeTitle.bold())
           

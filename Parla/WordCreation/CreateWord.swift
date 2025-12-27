@@ -12,20 +12,27 @@ struct CreateWord: View {
   
   @Environment(\.dismiss) private var dismiss
   
-  @State private var value = ""
-  @State private var translation = ""
+  @Bindable private var viewModel: CreateWordViewModel
   
   var onCreate: (String, String) -> Void
+  
+  init(viewModel: CreateWordViewModel, onCreate: @escaping (String, String) -> Void) {
+    self.viewModel = viewModel
+    self.onCreate = onCreate
+  }
   
   var body: some View {
     NavigationStack {
       VStack(spacing: 24) {
-        TextField(LocalizedStrings.CreateWord.word.localized, text: $value)
+        TextField(LocalizedStrings.CreateWord.word.localized, text: $viewModel.word)
           .font(.title2)
-        TextField(LocalizedStrings.CreateWord.translation.localized, text: $translation, axis: .vertical)
+        TextField(LocalizedStrings.CreateWord.translation.localized, text: $viewModel.translation, axis: .vertical)
           .foregroundStyle(.secondary)
-        
-        Spacer()
+        SuggestedWordList(
+          suggestedWords: viewModel.suggestedWords
+        ) { word in
+          viewModel.suggestionSelected(word: word)
+          }
       }
       .padding(.top, 44)
       .padding()
@@ -40,10 +47,10 @@ struct CreateWord: View {
         
         ToolbarItem(placement: .confirmationAction) {
           Button(LocalizedStrings.Common.create.localized) {
-            onCreate(value, translation)
+            onCreate(viewModel.word, viewModel.translation)
             dismiss()
           }
-          .disabled(value.isEmpty)
+          .disabled(viewModel.word.isEmpty)
         }
       }
     }

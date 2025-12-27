@@ -51,7 +51,7 @@ struct SwipeCardModifier: ViewModifier {
       )
     }
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
       switch direction {
       case .left:
         onSwipeLeft()

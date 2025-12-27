@@ -31,9 +31,12 @@ struct LearningView: View {
         } else {
           CardStackView(
             words: viewModel.words,
-            hiddenSide: hiddenSide
-          ) { word, result in
-            viewModel.register(word, result: result)
+            hiddenSide: hiddenSide,
+            onSwipe: { word, result in
+              viewModel.register(word, result: result)
+            }
+          ) { text in
+            viewModel.performVoiceOver(word: text)
           }
         }
       }

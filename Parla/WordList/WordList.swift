@@ -6,27 +6,30 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct WordList: View {
   
   @Environment(StyleService.self) private var styleService
   @Environment(AppCoordinator.self) private var coordinator
-  @Environment(\.modelContext) private var modelContext
-  var set: WordSet
-  @State private var wordToDelete: Word?
+  
   @State private var showDeleteConfirmation = false
   @State private var showAddWord = false
   
+  let model: WordListViewModel
+  
+  init(model: WordListViewModel) {
+    self.model = model
+  }
+  
   var body: some View {
     List {
-      ForEach(set.words) { word in
+      ForEach(model.set.words) { word in
         WordView(set: word)
           .listRowBackground(Color.clear)
           .listRowSeparator(.hidden)
           .contextMenu {
             Button(role: .destructive) {
-              wordToDelete = word
+              model.wordToDelete = word
               showDeleteConfirmation = true
             } label: {
               Label(LocalizedStrings.Common.delete.localized, systemImage: "trash")
@@ -42,11 +45,11 @@ struct WordList: View {
     .confirmationDialog(
       LocalizedStrings.WordList.deleteConfirmationDialogTitle.localized,
       isPresented: $showDeleteConfirmation,
-      presenting: wordToDelete
+      presenting: model.wordToDelete
     ) { word in
       Button(LocalizedStrings.Common.delete.localized, role: .destructive) {
         withAnimation {
-          modelContext.delete(word)
+          model.deleteWord(word: word)
         }
       }
       Button(LocalizedStrings.Common.cancel.localized, role: .cancel) { }
@@ -63,15 +66,15 @@ struct WordList: View {
       }
     }
     .sheet(isPresented: $showAddWord) {
-      CreateWord { value, translation in
-        modelContext.insert(Word(value: value, translation: translation, set: set))
+      CreateWord(viewModel: CreateWordViewModel(repository: DictionaryService())) { value, translation in
+        model.addWord(value: value, translation: translation)
       }
       .presentationBackground(styleService.commonBackgroundGradient)
     }
   }
 }
 
-#Preview {
-  WordList(set: WordSet(title: "Test", subtitle: "Test", emoji: "Test"))
-    .modelContainer(for: Word.self, inMemory: true)
-}
+//#Preview {
+//  WordList(set: WordSet(title: "Test", subtitle: "Test", emoji: "Test"))
+//    .modelContainer(for: Word.self, inMemory: true)
+//}
