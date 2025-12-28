@@ -9,7 +9,7 @@ import Testing
 import SwiftData
 @testable import Parla
 
-@Test("Word deletion")
+@MainActor @Test("Word deletion")
 func testDeleteWord() {
   let mockContext = MockModelContext()
   let wordSet = WordSet.mock()
@@ -22,7 +22,7 @@ func testDeleteWord() {
   #expect(mockContext.deletedItems.first as? Word === wordToDelete)
 }
 
-@Test("Word creation")
+@MainActor @Test("Word creation")
 func testAddWord() {
   let mockContext = MockModelContext()
   let wordSet = WordSet.mock()

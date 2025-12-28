@@ -14,6 +14,7 @@ protocol ModelContextProtocol {
 
 extension ModelContext: ModelContextProtocol {}
 
+@MainActor
 class MockModelContext: ModelContextProtocol {
   var deletedItems: [Any] = []
   var insertedItems: [Any] = []
