@@ -14,12 +14,16 @@ struct LearningView: View {
   
   @Environment(StyleService.self) private var styleService
   @State private var selectedSet: WordSet?
-  @State private var viewModel = LearningViewModel()
+  @State private var viewModel: LearningViewModel
   @Query private var sets: [WordSet]
   
   @AppStorage(AppSettingsKey.hiddenSide) private var hiddenSide: HiddenSide = .word
   
   // MARK: - Body
+  
+  init(viewModel: LearningViewModel) {
+    self.viewModel = viewModel
+  }
   
   var body: some View {
     VStack(spacing: 24) {

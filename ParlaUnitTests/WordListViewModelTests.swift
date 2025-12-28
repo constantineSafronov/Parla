@@ -11,15 +11,15 @@ import SwiftData
 
 @Test("Word deletion")
 func testDeleteWord() {
-    let mockContext = MockModelContext()
-    let wordSet = WordSet.mock()
-    let model = WordListViewModel(wordSet: wordSet, modelContext: mockContext)
-    let wordToDelete = Word.mock()
-    
-    model.deleteWord(word: wordToDelete)
-    
-    #expect(mockContext.deletedItems.count == 1)
-    #expect(mockContext.deletedItems.first as? Word === wordToDelete)
+  let mockContext = MockModelContext()
+  let wordSet = WordSet.mock()
+  let model = WordListViewModel(wordSet: wordSet, modelContext: mockContext)
+  let wordToDelete = Word.mock()
+  
+  model.deleteWord(word: wordToDelete)
+  
+  #expect(mockContext.deletedItems.count == 1)
+  #expect(mockContext.deletedItems.first as? Word === wordToDelete)
 }
 
 @Test("Word creation")

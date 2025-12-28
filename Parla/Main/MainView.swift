@@ -48,7 +48,7 @@ struct MainView: View {
         .presentationBackground(styleService.commonBackgroundGradient)
       }
       
-      LearningView()
+      LearningView(viewModel: LearningViewModel(synthesizer: SpeechSynthesizer()))
         .tabItem {
           Label(LocalizedStrings.TabBar.learning.localized, systemImage: "rectangle.stack")
         }

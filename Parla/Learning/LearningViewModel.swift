@@ -8,7 +8,6 @@
 import Observation
 import SwiftData
 import SwiftUI
-import AVFoundation
 
 enum SwipeResult {
   case known
@@ -19,11 +18,15 @@ enum SwipeResult {
 @Observable
 final class LearningViewModel {
   
-  let synthesizer = AVSpeechSynthesizer()
+  let synthesizer: SpeechSynthesizerProtocol
   private let shuffle: ([Word]) -> [Word]
   
-  init(shuffle: @escaping ([Word]) -> [Word] = { $0.shuffled() }) {
+  init(
+    shuffle: @escaping ([Word]) -> [Word] = { $0.shuffled() },
+    synthesizer: SpeechSynthesizerProtocol
+  ) {
     self.shuffle = shuffle
+    self.synthesizer = synthesizer
   }
   
   var words: [Word] = []
@@ -52,12 +55,6 @@ final class LearningViewModel {
   }
   
   func speakItalian(_ text: String) {
-    let utterance = AVSpeechUtterance(string: text)
-    utterance.voice = AVSpeechSynthesisVoice(language: "it-IT")
-    utterance.rate = AVSpeechUtteranceDefaultSpeechRate
-    utterance.pitchMultiplier = 1.0
-    utterance.volume = 1.0
-    
-    synthesizer.speak(utterance)
+    synthesizer.speak(text, language: "it-IT")
   }
 }
