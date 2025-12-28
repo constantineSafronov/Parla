@@ -15,8 +15,15 @@ struct SwipeCardModifier: ViewModifier {
   @State private var offset: CGSize = .zero
   @State private var isSwiped = false
   
+  // MARK: - Body
+  
   func body(content: Content) -> some View {
     content
+      .background(
+        swipeBackground
+          .clipShape(RoundedRectangle(cornerRadius: 24))
+          .padding(.horizontal)
+      )
       .offset(offset)
       .rotationEffect(.degrees(Double(offset.width / 12)))
       .gesture(
@@ -41,23 +48,54 @@ struct SwipeCardModifier: ViewModifier {
       )
   }
   
+  // MARK: - Background
+  
+  private var swipeBackground: some View {
+    let progress = min(abs(offset.width) / 120, 1)
+    
+    return Group {
+      if offset.width > 0 {
+        Color.green.opacity(progress * 0.55)
+      } else if offset.width < 0 {
+        Color.red.opacity(progress * 0.55)
+      } else {
+        Color.clear
+      }
+    }
+  }
+  
+  private var backgroundColor: Color {
+    if offset.width > 0 {
+      return .green
+    } else if offset.width < 0 {
+      return .red
+    } else {
+      return .clear
+    }
+  }
+  
+  // MARK: - Swipe
+  
   private func completeSwipe(to direction: SwipeDirection) {
     isSwiped = true
     
-    withAnimation(.easeIn(duration: 0.4)) {
+    withAnimation(.easeIn(duration: 0.35)) {
       offset = CGSize(
         width: direction == .right ? 600 : -600,
         height: 0
       )
     }
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
       switch direction {
       case .left:
         onSwipeLeft()
       case .right:
         onSwipeRight()
+      case .none:
+        break
       }
+      
       offset = .zero
       isSwiped = false
     }
@@ -66,6 +104,7 @@ struct SwipeCardModifier: ViewModifier {
   enum SwipeDirection {
     case left
     case right
+    case none
   }
 }
 
