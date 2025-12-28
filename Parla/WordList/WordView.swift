@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct WordView: View {
-  let set: Word
+  let word: Word
   
   var body: some View {
     ZStack {
+      if word.isLearned {
+        Color.green.opacity(0.45)
+          .cornerRadius(24)
+      }
       LiquidGlassView()
       VStack(alignment: .center, spacing: 12) {
-        Text(set.value)
+        Text(word.value)
           .font(.title)
         
-        Text(set.translation)
+        Text(word.translation)
           .font(.footnote)
       }
       .padding(.vertical)

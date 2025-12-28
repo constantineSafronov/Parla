@@ -20,3 +20,13 @@ enum RepeatingPeriod: String, CaseIterable, Identifiable {
     }
   }
 }
+
+extension RepeatingPeriod {
+  var policyTerm: Int {
+    switch self {
+    case .never: return Int.max
+    case .threeMonths: return 3
+    case .sixMonths: return 6
+    }
+  }
+}

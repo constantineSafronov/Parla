@@ -19,8 +19,8 @@ struct SettingsList: View {
       VStack(spacing: 24) {
         SettingsSection(title: LocalizedStrings.Settings.appearanceTitle.localized, icon: "paintbrush") {
           Text(LocalizedStrings.Settings.appearanceThemePickerTitle.localized)
-                      .font(.subheadline)
-                      .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.headline)
+            .frame(maxWidth: .infinity, alignment: .leading)
           Picker("", selection: $appTheme) {
             ForEach(AppTheme.allCases) { theme in
               Text(theme.title).tag(theme)
@@ -31,8 +31,8 @@ struct SettingsList: View {
         
         SettingsSection(title: LocalizedStrings.Settings.learningTitle.localized, icon: "eye.slash") {
           Text(LocalizedStrings.Settings.learningHiddenSidePickerTitle.localized)
-                      .font(.subheadline)
-                      .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.headline)
+            .frame(maxWidth: .infinity, alignment: .leading)
           Picker("", selection: $hiddenSide) {
             ForEach(HiddenSide.allCases) { side in
               Text(side.title).tag(side)
@@ -43,8 +43,8 @@ struct SettingsList: View {
             .font(.footnote)
             .foregroundStyle(.secondary)
           Text(LocalizedStrings.Settings.learningRepeatingIntervalPickerTitle.localized)
-                      .font(.subheadline)
-                      .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.headline)
+            .frame(maxWidth: .infinity, alignment: .leading)
           Picker("", selection: $repeatingPeriod) {
             ForEach(RepeatingPeriod.allCases) { period in
               Text(period.title).tag(period)
@@ -62,7 +62,7 @@ struct SettingsList: View {
     .navigationTitle(LocalizedStrings.Settings.title.localized)
     .background {
       styleService.commonBackgroundGradient
-      .ignoresSafeArea()
+        .ignoresSafeArea()
     }
   }
 }

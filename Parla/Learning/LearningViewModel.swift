@@ -19,17 +19,25 @@ enum SwipeResult {
 final class LearningViewModel {
   
   let synthesizer: SpeechSynthesizerProtocol
+  let wordService: WordServiceProtocol
+  let repeatingPeriod: RepeatingPeriod
   private let shuffle: ([Word]) -> [Word]
   
   init(
     shuffle: @escaping ([Word]) -> [Word] = { $0.shuffled() },
-    synthesizer: SpeechSynthesizerProtocol
+    synthesizer: SpeechSynthesizerProtocol,
+    wordService: WordServiceProtocol,
+    repeatingPeriod: RepeatingPeriod
   ) {
     self.shuffle = shuffle
     self.synthesizer = synthesizer
+    self.wordService = wordService
+    self.repeatingPeriod = repeatingPeriod
   }
   
   var words: [Word] = []
+  
+  // Testing Property
   var results: [Word.ID: SwipeResult] = [:]
   
   var currentWord: Word? {
@@ -41,12 +49,23 @@ final class LearningViewModel {
   }
   
   func load(from set: WordSet) {
-    words = shuffle(set.words)
+    words = wordService.updatedWordsAccordingToRepeatingPeriod(
+      words: set.words,
+      repeatingPeriod: repeatingPeriod
+    ).filter { !$0.isLearned }
+    words = shuffle(words)
     results.removeAll()
   }
   
   func register(_ word: Word, result: SwipeResult) {
     results[word.id] = result
+    
+    switch result {
+    case.known:
+      word.trackCorrectAnswer()
+    case .unknown:
+      word.trackWrongAnswer()
+    }
     words.removeFirst()
   }
   

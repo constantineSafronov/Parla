@@ -24,7 +24,7 @@ struct WordList: View {
   var body: some View {
     List {
       ForEach(model.set.words) { word in
-        WordView(set: word)
+        WordView(word: word)
           .listRowBackground(Color.clear)
           .listRowSeparator(.hidden)
           .contextMenu {

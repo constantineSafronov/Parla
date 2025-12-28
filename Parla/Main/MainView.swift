@@ -13,6 +13,7 @@ struct MainView: View {
   // MARK: - Properties
   
   @AppStorage(AppSettingsKey.appTheme) private var appTheme: AppTheme = .system
+  @AppStorage(AppSettingsKey.repeatingPeriod) private var repeatingPeriod: RepeatingPeriod = .never
   @Environment(\.modelContext) private var modelContext
   @State private var coordinator = AppCoordinator()
   @State private var styleService = StyleService()
@@ -47,8 +48,12 @@ struct MainView: View {
         }
         .presentationBackground(styleService.commonBackgroundGradient)
       }
-      
-      LearningView(viewModel: LearningViewModel(synthesizer: SpeechSynthesizer()))
+      let model = LearningViewModel(
+        synthesizer: SpeechSynthesizer(),
+        wordService: WordService(),
+        repeatingPeriod: repeatingPeriod
+      )
+      LearningView(viewModel: model)
         .tabItem {
           Label(LocalizedStrings.TabBar.learning.localized, systemImage: "rectangle.stack")
         }
