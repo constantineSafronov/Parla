@@ -282,6 +282,61 @@
         }
       }
     },
+    "settings.learning_section.repeating_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark words as unlearned at the end of the period."
+          }
+        }
+      }
+    },
+    "settings.learning_section.repeating_period_never" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Never"
+          }
+        }
+      }
+    },
+    "settings.learning_section.repeating_period_picker_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repeating period"
+          }
+        }
+      }
+    },
+    "settings.learning_section.repeating_period_six_month" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 Months"
+          }
+        }
+      }
+    },
+    "settings.learning_section.repeating_period_three_month" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 Months"
+          }
+        }
+      }
+    },
     "settings.learning_section.title" : {
       "extractionState" : "manual",
       "localizations" : {

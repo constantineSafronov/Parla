@@ -71,6 +71,11 @@ enum LocalizedStrings {
     case learningDescription = "settings.learning_section.description"
     case learningHiddenSideHideWord = "settings.learning_section.hiden_side_hide_word"
     case learningHiddenSideHideTranslation = "settings.learning_section.hiden_side_hide_translation"
+    case learningRepeatingIntervalPickerTitle = "settings.learning_section.repeating_period_picker_title"
+    case learningRepeatingPeriodThreeMonths = "settings.learning_section.repeating_period_three_month"
+    case learningRepeatingPeriodSixMonths = "settings.learning_section.repeating_period_six_month"
+    case learningRepeatingPeriodNever = "settings.learning_section.repeating_period_never"
+    case learningRepeatingDescription = "settings.learning_section.repeating_description"
   }
   
   enum AppTheme: String, Localizable {

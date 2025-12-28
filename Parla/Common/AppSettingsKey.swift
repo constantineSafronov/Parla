@@ -10,4 +10,5 @@ import Foundation
 enum AppSettingsKey {
     static let appTheme = "appTheme"
     static let hiddenSide = "hiddenSide"
+    static let repeatingPeriod = "repeatingPeriod"
 }

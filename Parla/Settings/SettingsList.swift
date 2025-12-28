@@ -12,12 +12,16 @@ struct SettingsList: View {
   @Environment(StyleService.self) private var styleService
   @AppStorage(AppSettingsKey.appTheme) private var appTheme: AppTheme = .system
   @AppStorage(AppSettingsKey.hiddenSide) private var hiddenSide: HiddenSide = .translation
+  @AppStorage(AppSettingsKey.repeatingPeriod) private var repeatingPeriod: RepeatingPeriod = .never
   
   var body: some View {
     ScrollView {
       VStack(spacing: 24) {
         SettingsSection(title: LocalizedStrings.Settings.appearanceTitle.localized, icon: "paintbrush") {
-          Picker(LocalizedStrings.Settings.appearanceThemePickerTitle.localized, selection: $appTheme) {
+          Text(LocalizedStrings.Settings.appearanceThemePickerTitle.localized)
+                      .font(.subheadline)
+                      .frame(maxWidth: .infinity, alignment: .leading)
+          Picker("", selection: $appTheme) {
             ForEach(AppTheme.allCases) { theme in
               Text(theme.title).tag(theme)
             }
@@ -26,18 +30,31 @@ struct SettingsList: View {
         }
         
         SettingsSection(title: LocalizedStrings.Settings.learningTitle.localized, icon: "eye.slash") {
-          Picker(LocalizedStrings.Settings.learningHiddenSidePickerTitle.localized, selection: $hiddenSide) {
+          Text(LocalizedStrings.Settings.learningHiddenSidePickerTitle.localized)
+                      .font(.subheadline)
+                      .frame(maxWidth: .infinity, alignment: .leading)
+          Picker("", selection: $hiddenSide) {
             ForEach(HiddenSide.allCases) { side in
               Text(side.title).tag(side)
             }
           }
           .pickerStyle(.segmented)
-          
           Text(LocalizedStrings.Settings.learningDescription.localized)
             .font(.footnote)
             .foregroundStyle(.secondary)
+          Text(LocalizedStrings.Settings.learningRepeatingIntervalPickerTitle.localized)
+                      .font(.subheadline)
+                      .frame(maxWidth: .infinity, alignment: .leading)
+          Picker("", selection: $repeatingPeriod) {
+            ForEach(RepeatingPeriod.allCases) { period in
+              Text(period.title).tag(period)
+            }
+          }
+          .pickerStyle(.segmented)
+          Text(LocalizedStrings.Settings.learningRepeatingDescription.localized)
+            .font(.footnote)
+            .foregroundStyle(.secondary)
         }
-        
         Spacer()
       }
       .padding()
