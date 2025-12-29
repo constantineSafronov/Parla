@@ -9,10 +9,12 @@ import SwiftUI
 
 struct SettingsList: View {
   
-  @Environment(StyleService.self) private var styleService
-  @AppStorage(AppSettingsKey.appTheme) private var appTheme: AppTheme = .system
-  @AppStorage(AppSettingsKey.hiddenSide) private var hiddenSide: HiddenSide = .translation
-  @AppStorage(AppSettingsKey.repeatingPeriod) private var repeatingPeriod: RepeatingPeriod = .never
+  @Environment(\.appEnvironment) private var environment
+  @Bindable private var viewModel: SettingsListViewModel
+  
+  init(viewModel: SettingsListViewModel) {
+    self.viewModel = viewModel
+  }
   
   var body: some View {
     ScrollView {
@@ -21,7 +23,7 @@ struct SettingsList: View {
           Text(LocalizedStrings.Settings.appearanceThemePickerTitle.localized)
             .font(.headline)
             .frame(maxWidth: .infinity, alignment: .leading)
-          Picker("", selection: $appTheme) {
+          Picker("", selection: $viewModel.appTheme) {
             ForEach(AppTheme.allCases) { theme in
               Text(theme.title).tag(theme)
             }
@@ -33,7 +35,7 @@ struct SettingsList: View {
           Text(LocalizedStrings.Settings.learningHiddenSidePickerTitle.localized)
             .font(.headline)
             .frame(maxWidth: .infinity, alignment: .leading)
-          Picker("", selection: $hiddenSide) {
+          Picker("", selection: $viewModel.hiddenSide) {
             ForEach(HiddenSide.allCases) { side in
               Text(side.title).tag(side)
             }
@@ -45,7 +47,7 @@ struct SettingsList: View {
           Text(LocalizedStrings.Settings.learningRepeatingIntervalPickerTitle.localized)
             .font(.headline)
             .frame(maxWidth: .infinity, alignment: .leading)
-          Picker("", selection: $repeatingPeriod) {
+          Picker("", selection: $viewModel.repeatingPeriod) {
             ForEach(RepeatingPeriod.allCases) { period in
               Text(period.title).tag(period)
             }
@@ -61,7 +63,7 @@ struct SettingsList: View {
     }
     .navigationTitle(LocalizedStrings.Settings.title.localized)
     .background {
-      styleService.commonBackgroundGradient
+      environment.styleService.commonBackgroundGradient
         .ignoresSafeArea()
     }
   }

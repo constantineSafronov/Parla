@@ -12,7 +12,7 @@ struct LearningView: View {
   
   // MARK: - State
   
-  @Environment(StyleService.self) private var styleService
+  @Environment(\.appEnvironment) private var environment
   @State private var selectedSet: WordSet?
   @State private var viewModel: LearningViewModel
   @Query private var sets: [WordSet]
@@ -51,7 +51,7 @@ struct LearningView: View {
     }
     .frame(maxWidth: .infinity)
     .background {
-      styleService.commonBackgroundGradient
+      environment.styleService.commonBackgroundGradient
       .ignoresSafeArea()
     }
     .navigationTitle(LocalizedStrings.Learning.title.localized)

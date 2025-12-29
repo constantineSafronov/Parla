@@ -11,7 +11,7 @@ import SwiftData
 struct CreateWordSet: View {
   
   @Environment(\.dismiss) private var dismiss
-  @Environment(StyleService.self) private var styleService
+  @Environment(\.appEnvironment) private var environment
   @State private var title = ""
   @State private var description = ""
   @State private var emoji = "📚"
@@ -68,7 +68,7 @@ struct CreateWordSet: View {
       }
       .sheet(isPresented: $showEmojiPicker) {
         EmojiPickerView(selectedEmoji: $emoji)
-          .presentationBackground(styleService.commonBackgroundGradient)
+          .presentationBackground(environment.styleService.commonBackgroundGradient)
       }
     }
   }

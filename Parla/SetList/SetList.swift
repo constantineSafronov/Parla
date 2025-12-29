@@ -10,7 +10,7 @@ import SwiftData
 
 struct SetList: View {
   
-  @Environment(StyleService.self) private var styleService
+  @Environment(\.appEnvironment) private var environment
   @Environment(AppCoordinator.self) private var coordinator
   @Environment(\.modelContext) private var modelContext
   @Query(sort: [
@@ -47,7 +47,7 @@ struct SetList: View {
       .padding()
     }
     .background {
-      styleService.commonBackgroundGradient
+      environment.styleService.commonBackgroundGradient
         .ignoresSafeArea()
     }
     .confirmationDialog(

@@ -11,7 +11,6 @@ import SwiftData
 struct CreateWord: View {
   
   @Environment(\.dismiss) private var dismiss
-  
   @Bindable private var viewModel: CreateWordViewModel
   
   var onCreate: (String, String) -> Void

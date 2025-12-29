@@ -8,10 +8,12 @@
 import SwiftUI
 import Observation
 
-enum Destination: Hashable {
-  case wordList(WordSet)
-  case createWordSet
-  case createWord
+// MARK: - Routes
+
+enum AppRoute: Hashable {
+  enum SetList: Hashable {
+    case wordList(WordSet)
+  }
 }
 
 @MainActor
@@ -19,38 +21,19 @@ enum Destination: Hashable {
 final class AppCoordinator {
 
   var path = NavigationPath()
-  var showCreateSetSheet = false
-  var showCreateWordSheet = false
-  
-  // MARK: - Navigation
-  
-  func push(_ destination: Destination) {
-    path.append(destination)
-  }
-  
+  var sheet: AppSheet?
+  var flowContext: AppFlowContext?
+
   func pop() {
     path.removeLast()
   }
-  
+
   func popToRoot() {
     path.removeLast(path.count)
+    flowContext = nil
   }
-  
-  // MARK: - Sheets
-  
-  func presentCreateWordSet() {
-    showCreateSetSheet = true
-  }
-  
-  func presentCreateWord() {
-    showCreateWordSheet = true
-  }
-  
-  func dismissCreateSetSheet() {
-    showCreateSetSheet = false
-  }
-  
-  func dismissCreateWordSheet() {
-    showCreateWordSheet = false
+
+  func dismissSheet() {
+    sheet = nil
   }
 }
