@@ -7,30 +7,26 @@
 
 import SwiftUI
 import SwiftData
+import Observation
 
 struct WordList: View {
-
-  @Environment(\.appEnvironment) private var environment
-  @Environment(AppCoordinator.self) private var coordinator
-
-  @State private var showDeleteConfirmation = false
-
-  let model: WordListViewModel
-
-  init(model: WordListViewModel) {
-    self.model = model
+  
+  @Bindable var viewModel: WordListViewModel
+  
+  init(viewModel: WordListViewModel) {
+    self.viewModel = viewModel
   }
-
+  
   var body: some View {
     List {
-      ForEach(model.set.words) { word in
+      ForEach(viewModel.set.words) { word in
         WordView(word: word)
           .listRowBackground(Color.clear)
           .listRowSeparator(.hidden)
           .contextMenu {
             Button(role: .destructive) {
-              model.wordToDelete = word
-              showDeleteConfirmation = true
+              viewModel.wordToDelete = word
+              viewModel.showDeleteConfirmation = true
             } label: {
               Label(
                 LocalizedStrings.Common.delete.localized,
@@ -42,20 +38,20 @@ struct WordList: View {
     }
     .listStyle(.plain)
     .background {
-      environment.styleService.commonBackgroundGradient
+      viewModel.environment.styleService.commonBackgroundGradient
         .ignoresSafeArea()
     }
     .confirmationDialog(
       LocalizedStrings.WordList.deleteConfirmationDialogTitle.localized,
-      isPresented: $showDeleteConfirmation,
-      presenting: model.wordToDelete
+      isPresented: $viewModel.showDeleteConfirmation,
+      presenting: viewModel.wordToDelete
     ) { word in
       Button(
         LocalizedStrings.Common.delete.localized,
         role: .destructive
       ) {
         withAnimation {
-          model.deleteWord(word: word)
+          viewModel.deleteWord(word: word)
         }
       }
       Button(
@@ -74,7 +70,7 @@ struct WordList: View {
     .toolbar {
       ToolbarItem(placement: .navigationBarTrailing) {
         Button {
-          coordinator.presentCreateWord()
+          viewModel.presentCreateWord()
         } label: {
           Image(systemName: "plus")
         }
@@ -85,8 +81,11 @@ struct WordList: View {
 
 #Preview {
   WordList(
-    model: WordListViewModel(
+    viewModel: WordListViewModel(
       wordSet: WordSet(title: "Test", subtitle: "Test", emoji: "Test"),
-      modelContext: MockModelContext())
+      modelContext: MockModelContext(),
+      coordinator: AppCoordinator(),
+      environment: AppEnvironment(styleService: StyleService(), dictionaryService: DictionaryService())
+    )
   )
 }

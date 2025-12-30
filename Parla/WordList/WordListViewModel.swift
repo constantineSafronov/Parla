@@ -13,15 +13,21 @@ import Observation
 final class WordListViewModel {
   private let modelContext: ModelContextProtocol
   private(set) var set: WordSet
+  private let coordinator: AppCoordinator
+  let environment: AppEnvironment
+  var showDeleteConfirmation = false
   var wordToDelete: Word?
   
-  init(wordSet: WordSet, modelContext: ModelContextProtocol) {
+  init(
+    wordSet: WordSet,
+    modelContext: ModelContextProtocol,
+    coordinator: AppCoordinator,
+    environment: AppEnvironment
+  ) {
     self.set = wordSet
     self.modelContext = modelContext
-  }
-  
-  convenience init(wordSet: WordSet) {
-    self.init(wordSet: wordSet, modelContext: MockModelContext())
+    self.coordinator = coordinator
+    self.environment = environment
   }
   
   func deleteWord(word: Word) {
@@ -30,5 +36,9 @@ final class WordListViewModel {
   
   func addWord(value: String, translation: String) {
     modelContext.insert(Word(value: value, translation: translation, set: set))
+  }
+  
+  func presentCreateWord() {
+    coordinator.presentCreateWord()
   }
 }

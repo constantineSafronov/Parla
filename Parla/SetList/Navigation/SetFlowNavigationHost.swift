@@ -59,9 +59,11 @@ struct SetFlowNavigationHost: View {
     switch route {
     case .wordList(let set):
       WordList(
-        model: WordListViewModel(
+        viewModel: WordListViewModel(
           wordSet: set,
-          modelContext: modelContext
+          modelContext: modelContext,
+          coordinator: coordinator,
+          environment: environment
         )
       )
       .toolbar(.hidden, for: .tabBar)
