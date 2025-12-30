@@ -9,15 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct LearningView: View {
-  
-  // MARK: - State
-  
-  @Environment(\.appEnvironment) private var environment
-  @State private var selectedSet: WordSet?
+    
   @State private var viewModel: LearningViewModel
-  @Query private var sets: [WordSet]
-  
-  @AppStorage(AppSettingsKey.hiddenSide) private var hiddenSide: HiddenSide = .word
   
   // MARK: - Body
   
@@ -35,7 +28,7 @@ struct LearningView: View {
         } else {
           CardStackView(
             words: viewModel.words,
-            hiddenSide: hiddenSide,
+            hiddenSide: viewModel.hiddenSide,
             onSwipe: { word, result in
               viewModel.register(word, result: result)
             }
@@ -51,25 +44,28 @@ struct LearningView: View {
     }
     .frame(maxWidth: .infinity)
     .background {
-      environment.styleService.commonBackgroundGradient
+      viewModel.environment.styleService.commonBackgroundGradient
       .ignoresSafeArea()
     }
     .navigationTitle(LocalizedStrings.Learning.title.localized)
     .task {
       startWithDefaultSetIfNeeded()
     }
-    .onChange(of: selectedSet) { _, newSet in
+    .onChange(of: viewModel.selectedSet) { _, newSet in
       if let newSet {
         viewModel.load(from: newSet)
       }
+    }
+    .task {
+      await viewModel.loadSets()
     }
   }
   
   // MARK: - Body parts
   
   private var wordSetPicker: some View {
-    Picker(LocalizedStrings.Learning.pickerTitle.localized, selection: $selectedSet) {
-      ForEach(sets) { set in
+    Picker(LocalizedStrings.Learning.pickerTitle.localized, selection: $viewModel.selectedSet) {
+      ForEach(viewModel.sets) { set in
         Text("\(set.emoji) \(set.title)")
           .tag(Optional(set))
       }
@@ -79,7 +75,7 @@ struct LearningView: View {
   
   private var finishedView: some View {
     VStack(spacing: 12) {
-      if let set = selectedSet {
+      if let set = viewModel.selectedSet {
         Text(LocalizedStrings.Learning.finishedViewTitle.localized)
           .font(.headline)
         
@@ -95,11 +91,11 @@ struct LearningView: View {
   }
   
   private func startWithDefaultSetIfNeeded() {
-    guard selectedSet == nil else { return }
+    guard viewModel.selectedSet == nil else { return }
     
-    selectedSet = sets.first
+    viewModel.selectedSet = viewModel.sets.first
     
-    if let first = sets.first {
+    if let first = viewModel.sets.first {
       viewModel.load(from: first)
     }
   }

@@ -10,6 +10,7 @@ import SwiftData
 protocol ModelContextProtocol {
   func delete<T: PersistentModel>(_ model: T)
   func insert<T: PersistentModel>(_ model: T)
+  func fetch<T>(_ descriptor: FetchDescriptor<T>) throws -> [T] where T : PersistentModel
 }
 
 extension ModelContext: ModelContextProtocol {}
@@ -25,5 +26,9 @@ class MockModelContext: ModelContextProtocol {
   
   func insert<T: PersistentModel>(_ model: T) {
     insertedItems.append(model)
+  }
+  
+  func fetch<T>(_ descriptor: FetchDescriptor<T>) throws -> [T] where T : PersistentModel {
+    return []
   }
 }

@@ -37,7 +37,11 @@ struct SetFlowNavigationHost: View {
   
   var body: some View {
     NavigationStack(path: Bindable(coordinator).path) {
-      SetList()
+      SetListView(viewModel: SetListViewModel(
+        modelContext: modelContext,
+        coordinator: coordinator,
+        environment: environment
+    ))
         .navigationDestination(
           for: AppRoute.SetList.self,
           destination: routeView

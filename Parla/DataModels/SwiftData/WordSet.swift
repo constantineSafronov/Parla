@@ -32,3 +32,13 @@ extension WordSet {
     return set
   }
 }
+
+extension WordSet {
+  func toDTO() -> WordSetDTO {
+    WordSetDTO(
+      id: id,
+      title: title,
+      emoji: emoji
+    )
+  }
+}

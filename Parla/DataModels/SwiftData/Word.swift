@@ -48,3 +48,14 @@ extension Word {
     Word(value: "\(id)", translation: "text", set: nil)
   }
 }
+
+extension Word {
+  func toDTO() -> WordDTO {
+    WordDTO(
+      id: UUID(),
+      value: value,
+      translation: translation,
+      setId: set?.id ?? UUID()
+    )
+  }
+}

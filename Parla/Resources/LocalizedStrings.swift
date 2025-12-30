@@ -1,6 +1,6 @@
 //
 //  String+Localized.swift
-//  Spectra
+//  Parla
 //
 //  Created by Konstantin Safronov on 22.10.2025.
 //

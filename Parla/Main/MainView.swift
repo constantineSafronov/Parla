@@ -19,11 +19,10 @@ struct MainView: View {
   @AppStorage(AppSettingsKey.repeatingPeriod)
   private var repeatingPeriod: RepeatingPeriod = .never
   
-  @Environment(\.modelContext)
-  private var modelContext
-  
   @State private var coordinator = AppCoordinator()
-  @State private var styleService = StyleService()
+  
+  @Environment(\.modelContext) private var modelContext
+  @Environment(\.appEnvironment) private var environment
   
   var body: some View {
     TabView {
@@ -33,13 +32,6 @@ struct MainView: View {
     }
     .preferredColorScheme(appTheme.colorScheme)
     .environment(coordinator)
-    .environment(
-      \.appEnvironment,
-       AppEnvironment(
-        styleService: styleService,
-        dictionaryService: DictionaryService()
-       )
-    )
   }
 }
 
@@ -59,7 +51,9 @@ extension MainView {
       viewModel: LearningViewModel(
         synthesizer: SpeechSynthesizer(),
         wordService: WordService(),
-        repeatingPeriod: repeatingPeriod
+        repeatingPeriod: repeatingPeriod,
+        environment: environment,
+        modelContext: modelContext
       )
     )
     .tabItem {

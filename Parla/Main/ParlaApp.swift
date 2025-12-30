@@ -10,6 +10,13 @@ import SwiftData
 
 @main
 struct ParlaApp: App {
+  
+  @State private var styleService = StyleService()
+  
+  init() {
+    _ = WatchSyncService.shared
+  }
+  
   var sharedModelContainer: ModelContainer = {
     let schema = Schema([
       WordSet.self,
@@ -27,6 +34,13 @@ struct ParlaApp: App {
   var body: some Scene {
     WindowGroup {
       MainView()
+        .environment(
+          \.appEnvironment,
+           AppEnvironment(
+            styleService: styleService,
+            dictionaryService: DictionaryService()
+           )
+        )
     }
     .modelContainer(sharedModelContainer)
   }

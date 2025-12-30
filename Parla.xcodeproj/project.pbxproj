@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8B16D262F03EF4A004824E3 /* ParlaWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C8B16D062F03EF48004824E3 /* ParlaWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C8B16D352F03F0E9004824E3 /* WordDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B16D332F03F0A9004824E3 /* WordDTO.swift */; };
+		C8B16D362F03F0E9004824E3 /* WordDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B16D332F03F0A9004824E3 /* WordDTO.swift */; };
+		C8B16D372F03F0F6004824E3 /* WordSetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B16D342F03F0C1004824E3 /* WordSetDTO.swift */; };
+		C8B16D382F03F0F6004824E3 /* WordSetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B16D342F03F0C1004824E3 /* WordSetDTO.swift */; };
+		C8B16DD32F03F6F9004824E3 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B16D452F03F628004824E3 /* WatchConnectivity.framework */; platformFilters = (ios, xros, ); };
+		C8B16DD72F04061F004824E3 /* SharedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B16DD62F04061A004824E3 /* SharedDataManager.swift */; };
+		C8B16DD82F04061F004824E3 /* SharedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B16DD62F04061A004824E3 /* SharedDataManager.swift */; };
 		C8E5E1DD2EF7161F0087BBC1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E5E1DC2EF7161F0087BBC1 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -18,19 +26,45 @@
 			remoteGlobalIDString = C8587C412EF5F1F200D49E2E;
 			remoteInfo = Parla;
 		};
-		C8587C5E2EF5F1F400D49E2E /* PBXContainerItemProxy */ = {
+		C8B16D132F03EF4A004824E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C8587C3A2EF5F1F200D49E2E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C8587C412EF5F1F200D49E2E;
-			remoteInfo = Parla;
+			remoteGlobalIDString = C8B16D052F03EF48004824E3;
+			remoteInfo = "ParlaWatch Watch App";
+		};
+		C8B16D242F03EF4A004824E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8587C3A2EF5F1F200D49E2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8B16D052F03EF48004824E3;
+			remoteInfo = "ParlaWatch Watch App";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C8B16D2A2F03EF4A004824E3 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C8B16D262F03EF4A004824E3 /* ParlaWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C8587C422EF5F1F200D49E2E /* Parla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8587C532EF5F1F400D49E2E /* ParlaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8587C5D2EF5F1F400D49E2E /* ParlaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8B16D062F03EF48004824E3 /* ParlaWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParlaWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8B16D122F03EF4A004824E3 /* ParlaWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParlaWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8B16D332F03F0A9004824E3 /* WordDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDTO.swift; sourceTree = "<group>"; };
+		C8B16D342F03F0C1004824E3 /* WordSetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSetDTO.swift; sourceTree = "<group>"; };
+		C8B16D452F03F628004824E3 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		C8B16DD62F04061A004824E3 /* SharedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataManager.swift; sourceTree = "<group>"; };
 		C8E5E1DC2EF7161F0087BBC1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +92,16 @@
 			path = ParlaUnitTests;
 			sourceTree = "<group>";
 		};
+		C8B16D072F03EF48004824E3 /* ParlaWatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ParlaWatch Watch App";
+			sourceTree = "<group>";
+		};
+		C8B16D152F03EF4A004824E3 /* ParlaWatch Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ParlaWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8B16DD32F03F6F9004824E3 /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +120,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8587C5A2EF5F1F400D49E2E /* Frameworks */ = {
+		C8B16D032F03EF48004824E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8B16D0F2F03EF4A004824E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -88,9 +140,13 @@
 		C8587C392EF5F1F200D49E2E = {
 			isa = PBXGroup;
 			children = (
+				C8B16D312F03EFF1004824E3 /* Shared */,
 				C8E5E1DC2EF7161F0087BBC1 /* Launch Screen.storyboard */,
 				C8587C442EF5F1F200D49E2E /* Parla */,
 				C8587C562EF5F1F400D49E2E /* ParlaUnitTests */,
+				C8B16D072F03EF48004824E3 /* ParlaWatch Watch App */,
+				C8B16D152F03EF4A004824E3 /* ParlaWatch Watch AppTests */,
+				C8B16D442F03F627004824E3 /* Frameworks */,
 				C8587C432EF5F1F200D49E2E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,9 +156,44 @@
 			children = (
 				C8587C422EF5F1F200D49E2E /* Parla.app */,
 				C8587C532EF5F1F400D49E2E /* ParlaTests.xctest */,
-				C8587C5D2EF5F1F400D49E2E /* ParlaUITests.xctest */,
+				C8B16D062F03EF48004824E3 /* ParlaWatch Watch App.app */,
+				C8B16D122F03EF4A004824E3 /* ParlaWatch Watch AppTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C8B16D312F03EFF1004824E3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C8B16DD52F040606004824E3 /* Support */,
+				C8B16D322F03F0A2004824E3 /* DTO */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C8B16D322F03F0A2004824E3 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C8B16D332F03F0A9004824E3 /* WordDTO.swift */,
+				C8B16D342F03F0C1004824E3 /* WordSetDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		C8B16D442F03F627004824E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8B16D452F03F628004824E3 /* WatchConnectivity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8B16DD52F040606004824E3 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				C8B16DD62F04061A004824E3 /* SharedDataManager.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,10 +206,12 @@
 				C8587C3E2EF5F1F200D49E2E /* Sources */,
 				C8587C3F2EF5F1F200D49E2E /* Frameworks */,
 				C8587C402EF5F1F200D49E2E /* Resources */,
+				C8B16D2A2F03EF4A004824E3 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C8B16D252F03EF4A004824E3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				C8587C442EF5F1F200D49E2E /* Parla */,
@@ -153,25 +246,50 @@
 			productReference = C8587C532EF5F1F400D49E2E /* ParlaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C8587C5C2EF5F1F400D49E2E /* ParlaUITests */ = {
+		C8B16D052F03EF48004824E3 /* ParlaWatch Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8587C6E2EF5F1F400D49E2E /* Build configuration list for PBXNativeTarget "ParlaUITests" */;
+			buildConfigurationList = C8B16D272F03EF4A004824E3 /* Build configuration list for PBXNativeTarget "ParlaWatch Watch App" */;
 			buildPhases = (
-				C8587C592EF5F1F400D49E2E /* Sources */,
-				C8587C5A2EF5F1F400D49E2E /* Frameworks */,
-				C8587C5B2EF5F1F400D49E2E /* Resources */,
+				C8B16D022F03EF48004824E3 /* Sources */,
+				C8B16D032F03EF48004824E3 /* Frameworks */,
+				C8B16D042F03EF48004824E3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C8587C5F2EF5F1F400D49E2E /* PBXTargetDependency */,
 			);
-			name = ParlaUITests;
+			fileSystemSynchronizedGroups = (
+				C8B16D072F03EF48004824E3 /* ParlaWatch Watch App */,
+			);
+			name = "ParlaWatch Watch App";
 			packageProductDependencies = (
 			);
-			productName = ParlaUITests;
-			productReference = C8587C5D2EF5F1F400D49E2E /* ParlaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			productName = "ParlaWatch Watch App";
+			productReference = C8B16D062F03EF48004824E3 /* ParlaWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8B16D112F03EF4A004824E3 /* ParlaWatch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8B16D2B2F03EF4A004824E3 /* Build configuration list for PBXNativeTarget "ParlaWatch Watch AppTests" */;
+			buildPhases = (
+				C8B16D0E2F03EF4A004824E3 /* Sources */,
+				C8B16D0F2F03EF4A004824E3 /* Frameworks */,
+				C8B16D102F03EF4A004824E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8B16D142F03EF4A004824E3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C8B16D152F03EF4A004824E3 /* ParlaWatch Watch AppTests */,
+			);
+			name = "ParlaWatch Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "ParlaWatch Watch AppTests";
+			productReference = C8B16D122F03EF4A004824E3 /* ParlaWatch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -190,9 +308,12 @@
 						CreatedOnToolsVersion = 26.0;
 						TestTargetID = C8587C412EF5F1F200D49E2E;
 					};
-					C8587C5C2EF5F1F400D49E2E = {
+					C8B16D052F03EF48004824E3 = {
 						CreatedOnToolsVersion = 26.0;
-						TestTargetID = C8587C412EF5F1F200D49E2E;
+					};
+					C8B16D112F03EF4A004824E3 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = C8B16D052F03EF48004824E3;
 					};
 				};
 			};
@@ -212,7 +333,8 @@
 			targets = (
 				C8587C412EF5F1F200D49E2E /* Parla */,
 				C8587C522EF5F1F400D49E2E /* ParlaTests */,
-				C8587C5C2EF5F1F400D49E2E /* ParlaUITests */,
+				C8B16D052F03EF48004824E3 /* ParlaWatch Watch App */,
+				C8B16D112F03EF4A004824E3 /* ParlaWatch Watch AppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,7 +355,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8587C5B2EF5F1F400D49E2E /* Resources */ = {
+		C8B16D042F03EF48004824E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8B16D102F03EF4A004824E3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -247,6 +376,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8B16DD72F04061F004824E3 /* SharedDataManager.swift in Sources */,
+				C8B16D352F03F0E9004824E3 /* WordDTO.swift in Sources */,
+				C8B16D372F03F0F6004824E3 /* WordSetDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +389,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8587C592EF5F1F400D49E2E /* Sources */ = {
+		C8B16D022F03EF48004824E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8B16D382F03F0F6004824E3 /* WordSetDTO.swift in Sources */,
+				C8B16DD82F04061F004824E3 /* SharedDataManager.swift in Sources */,
+				C8B16D362F03F0E9004824E3 /* WordDTO.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8B16D0E2F03EF4A004824E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,10 +414,15 @@
 			target = C8587C412EF5F1F200D49E2E /* Parla */;
 			targetProxy = C8587C542EF5F1F400D49E2E /* PBXContainerItemProxy */;
 		};
-		C8587C5F2EF5F1F400D49E2E /* PBXTargetDependency */ = {
+		C8B16D142F03EF4A004824E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C8587C412EF5F1F200D49E2E /* Parla */;
-			targetProxy = C8587C5E2EF5F1F400D49E2E /* PBXContainerItemProxy */;
+			target = C8B16D052F03EF48004824E3 /* ParlaWatch Watch App */;
+			targetProxy = C8B16D132F03EF4A004824E3 /* PBXContainerItemProxy */;
+		};
+		C8B16D252F03EF4A004824E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8B16D052F03EF48004824E3 /* ParlaWatch Watch App */;
+			targetProxy = C8B16D242F03EF4A004824E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -285,9 +432,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Parla/Parla.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 25RM6497BN;
+				DEVELOPMENT_TEAM = 2HR5S6SU6C;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -316,13 +464,14 @@
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
@@ -332,9 +481,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Parla/Parla.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 25RM6497BN;
+				DEVELOPMENT_TEAM = 2HR5S6SU6C;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -363,13 +513,14 @@
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
@@ -544,53 +695,119 @@
 			};
 			name = Release;
 		};
-		C8587C6F2EF5F1F400D49E2E /* Debug */ = {
+		C8B16D282F03EF4A004824E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ParlaWatch Watch App/ParlaWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2HR5S6SU6C;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				INFOPLIST_KEY_CFBundleDisplayName = ParlaWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.vibemedia.PrideFit;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Aero.ParlaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.vibemedia.PrideFit.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = Parla;
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
 		};
-		C8587C702EF5F1F400D49E2E /* Release */ = {
+		C8B16D292F03EF4A004824E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ParlaWatch Watch App/ParlaWatch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2HR5S6SU6C;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ParlaWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.vibemedia.PrideFit;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.vibemedia.PrideFit.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
+		C8B16D2C2F03EF4A004824E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2HR5S6SU6C;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Aero.ParlaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "Aero.ParlaWatch-Watch-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
+				SDKROOT = watchos;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = Parla;
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParlaWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ParlaWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		C8B16D2D2F03EF4A004824E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2HR5S6SU6C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Aero.ParlaWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParlaWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ParlaWatch Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
 		};
@@ -624,11 +841,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8587C6E2EF5F1F400D49E2E /* Build configuration list for PBXNativeTarget "ParlaUITests" */ = {
+		C8B16D272F03EF4A004824E3 /* Build configuration list for PBXNativeTarget "ParlaWatch Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C8587C6F2EF5F1F400D49E2E /* Debug */,
-				C8587C702EF5F1F400D49E2E /* Release */,
+				C8B16D282F03EF4A004824E3 /* Debug */,
+				C8B16D292F03EF4A004824E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8B16D2B2F03EF4A004824E3 /* Build configuration list for PBXNativeTarget "ParlaWatch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8B16D2C2F03EF4A004824E3 /* Debug */,
+				C8B16D2D2F03EF4A004824E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

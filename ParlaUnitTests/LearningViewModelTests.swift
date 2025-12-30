@@ -15,7 +15,15 @@ final class ParlaTests: XCTestCase {
   func testLoadResetsState() async {
     let words = [Word.mock(), Word.mock()]
     let set = WordSet.mock(words: words)
-    let vm = LearningViewModel(shuffle: { $0 }, synthesizer: MockSpeechSynthesizer())
+    let env = AppEnvironment(styleService: StyleService(), dictionaryService: DictionaryService())
+    let vm = LearningViewModel(
+      shuffle: { $0 },
+      synthesizer: MockSpeechSynthesizer(),
+      wordService: WordService(),
+      repeatingPeriod: .never,
+      environment: env,
+      modelContext: MockModelContext()
+    )
     vm.load(from: set)
     
     XCTAssertEqual(vm.words.count, 2)
@@ -26,10 +34,14 @@ final class ParlaTests: XCTestCase {
   func testRegisterRemovesCurrentWord() async {
     let word1 = Word.mock()
     let word2 = Word.mock()
-    
+    let env = AppEnvironment(styleService: StyleService(), dictionaryService: DictionaryService())
     let vm = LearningViewModel(
       shuffle: { $0 },
-      synthesizer: MockSpeechSynthesizer()
+      synthesizer: MockSpeechSynthesizer(),
+      wordService: WordService(),
+      repeatingPeriod: .never,
+      environment: env,
+      modelContext: MockModelContext()
     )
     vm.load(from: .mock(words: [word1, word2]))
     
@@ -42,9 +54,14 @@ final class ParlaTests: XCTestCase {
   func testIsFinishedWhenNoWordsLeft() async {
     let word = Word.mock()
     
+    let env = AppEnvironment(styleService: StyleService(), dictionaryService: DictionaryService())
     let vm = LearningViewModel(
       shuffle: { $0 },
-      synthesizer: MockSpeechSynthesizer()
+      synthesizer: MockSpeechSynthesizer(),
+      wordService: WordService(),
+      repeatingPeriod: .never,
+      environment: env,
+      modelContext: MockModelContext()
     )
     vm.load(from: .mock(words: [word]))
     

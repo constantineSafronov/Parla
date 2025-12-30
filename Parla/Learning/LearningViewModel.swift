@@ -18,21 +18,37 @@ enum SwipeResult {
 @Observable
 final class LearningViewModel {
   
+  private let shuffle: ([Word]) -> [Word]
+  private let modelContext: ModelContextProtocol
+  
   let synthesizer: SpeechSynthesizerProtocol
   let wordService: WordServiceProtocol
   let repeatingPeriod: RepeatingPeriod
-  private let shuffle: ([Word]) -> [Word]
+  let environment: AppEnvironment
+  
+  var sets: [WordSet] = []
+  var selectedSet: WordSet?
+  var hiddenSide: HiddenSide {
+    didSet { UserDefaults.standard.set(hiddenSide.rawValue, forKey: AppSettingsKey.hiddenSide) }
+  }
   
   init(
     shuffle: @escaping ([Word]) -> [Word] = { $0.shuffled() },
     synthesizer: SpeechSynthesizerProtocol,
     wordService: WordServiceProtocol,
-    repeatingPeriod: RepeatingPeriod
+    repeatingPeriod: RepeatingPeriod,
+    environment: AppEnvironment,
+    modelContext: ModelContextProtocol
   ) {
     self.shuffle = shuffle
     self.synthesizer = synthesizer
     self.wordService = wordService
     self.repeatingPeriod = repeatingPeriod
+    self.environment = environment
+    self.modelContext = modelContext
+    
+    let rawSide = UserDefaults.standard.string(forKey: AppSettingsKey.hiddenSide) ?? ""
+    self.hiddenSide = HiddenSide(rawValue: rawSide) ?? .translation
   }
   
   var words: [Word] = []
@@ -46,6 +62,18 @@ final class LearningViewModel {
   
   var isFinished: Bool {
     words.isEmpty
+  }
+  
+  @MainActor
+  func loadSets() async {
+    let descriptor = FetchDescriptor<WordSet>(
+      sortBy: [SortDescriptor(\.createdAt, order: .reverse)]
+    )
+    do {
+      sets = try modelContext.fetch(descriptor)
+    } catch {
+      sets = []
+    }
   }
   
   func load(from set: WordSet) {
