@@ -65,7 +65,7 @@ extension MainView {
   }
   
   var settingsTab: some View {
-    SettingsList(viewModel: SettingsListViewModel())
+    SettingsList(viewModel: SettingsListViewModel(environment: environment))
       .tabItem {
         Label(
           LocalizedStrings.TabBar.settings.localized,

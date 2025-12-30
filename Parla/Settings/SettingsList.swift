@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SettingsList: View {
   
-  @Environment(\.appEnvironment) private var environment
   @Bindable private var viewModel: SettingsListViewModel
   
   init(viewModel: SettingsListViewModel) {
@@ -63,7 +62,7 @@ struct SettingsList: View {
     }
     .navigationTitle(LocalizedStrings.Settings.title.localized)
     .background {
-      environment.styleService.commonBackgroundGradient
+      viewModel.environment.styleService.commonBackgroundGradient
         .ignoresSafeArea()
     }
   }

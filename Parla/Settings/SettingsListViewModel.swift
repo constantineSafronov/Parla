@@ -23,7 +23,10 @@ final class SettingsListViewModel {
     didSet { UserDefaults.standard.set(repeatingPeriod.rawValue, forKey: AppSettingsKey.repeatingPeriod) }
   }
   
-  init() {
+  let environment: AppEnvironment
+  
+  init(environment: AppEnvironment) {
+    self.environment = environment
     let rawTheme = UserDefaults.standard.string(forKey: AppSettingsKey.appTheme) ?? ""
     self.appTheme = AppTheme(rawValue: rawTheme) ?? .system
     
