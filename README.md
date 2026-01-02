@@ -1,11 +1,78 @@
-# Parla
+# Parla 🇮🇹
 
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-Orange?style=flat-square&logo=swift) ![SwiftTesting](https://img.shields.io/badge/SwiftTesting-Orange?style=flat-square&logo=swift) ![iOS](https://img.shields.io/badge/iOS-Blue?style=flat-square&logo=apple) ![Combine](https://img.shields.io/badge/Combine-Red?style=flat-square) ![SwiftData](https://img.shields.io/badge/SwiftData-LightBlue?style=flat-square)
 
-Parla 🇮🇹 is an iOS app built with SwiftUI for learning Italian. Create custom word sets, add new words, and swipe through flashcards to study and memorize vocabulary.
+**Parla** is an iOS application for learning Italian vocabulary, designed as a portfolio project to demonstrate modern iOS development practices, clean architecture, and a focus on user experience.
+
+The app allows users to create custom word sets, add Italian words using dictionary-based suggestions, and practice vocabulary through an interactive card-based learning flow inspired by swipeable decks.
 
 ---
 
+## ✨ Features
+
+- 📚 **Custom Word Sets**
+  - Create and manage your own vocabulary sets
+  - Add, edit, and organize Italian words
+
+- 🔍 **Smart Word Suggestions**
+  - Add new words using a local dictionary
+  - Real-time suggestions with a selectable hint interface
+
+- 🃏 **Card-Based Learning**
+  - Swipeable card deck for vocabulary training
+  - Focused, distraction-free learning experience
+
+- ⌚ **Apple Watch Support**
+  - Lightweight companion app
+  - Minimal functionality for quick word review on the go
+
+- 🧪 **Test Coverage**
+  - Swift Tests included to ensure core logic reliability
+
+---
+
+## 🧱 Architecture
+
+Parla is built using the **MVVM** architectural pattern with a strong separation of concerns:
+
+- **Model** — SwiftData entities and business logic  
+- **View** — SwiftUI views with a declarative UI approach  
+- **ViewModel** — Presentation logic using the Observation framework  
+
+This structure ensures scalability, testability, and maintainability.
+
+---
+
+## 🛠 Technologies & Tools
+
+- **SwiftUI** — Declarative UI framework
+- **SwiftData** — Persistent storage
+- **Observation Framework** — Modern state observation
+- **MVVM** — Clean architectural pattern
+- **Swift Tests** — Unit testing
+- **Apple Watch support**
+- **iOS 26**
+
+---
+
+## 📱 Platform Support
+
+- iPhone (iOS 26+)
+- Apple Watch (minimal companion functionality)
+- Interface language: **English**
+
+---
+
+## 🎯 Purpose
+
+This project was created as a **portfolio application** to showcase:
+- Modern SwiftUI development
+- Practical usage of SwiftData and Observation
+- Clean MVVM architecture
+- Attention to UX in educational apps
+- Apple ecosystem integration
+
+---
 
 ## Screenshots 🖼️
 
