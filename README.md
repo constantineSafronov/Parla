@@ -80,6 +80,11 @@ This project was created as a **portfolio application** to showcase:
   <td><img src="https://github.com/user-attachments/assets/93e0b305-ffe9-4a8e-aead-58f8caff3a2c" alt="Emoji Set" width="200"/></td>
   <td><img src="https://github.com/user-attachments/assets/35412538-12c3-4dbe-ab65-ef0572606027" alt="Learning" width="200"/></td>
   <td><img src="https://github.com/user-attachments/assets/72ae2de9-7d3e-40f3-9fa9-316b67136b7a" alt="Word List" width="200"/></td>
+  <td><img src="https://github.com/user-attachments/assets/bfda3a4d-5360-49ea-a9bd-2fdd8cd13084" alt="Word Creation" width="200"/></td>
+  <td><img src="https://github.com/user-attachments/assets/3c2c75d7-3008-4e88-a292-f65da77dbc51" alt="Dark Theme" width="200"/></td>
+  <td><img src="https://github.com/user-attachments/assets/03648370-123c-4276-93b8-b77b3e6e4479" alt="Set List" width="200 height="514"/></td>
+  <td><img src="https://github.com/user-attachments/assets/8595b742-ba11-475f-bac6-bc63b258efd2" alt="Word Card" width="200 height="514"/></td>
+</tr>
 </tr>
 </table>
 
